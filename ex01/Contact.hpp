@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:28:10 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/09/27 16:38:24 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:36:10 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ class Contact {
 		std::string phoneNumber;
 		std::string darkestSecret;
 	public:
-		Contact(); //default constructor
+		Contact() {}; //default constructor
 		Contact(std::string *infos); //custom constructor
 		bool isEmpty();
+		void print(size_t);
+		std::string cut(std::string);
 };
 
 #endif

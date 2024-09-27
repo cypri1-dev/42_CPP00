@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:16:41 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/09/27 16:42:46 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:36:15 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	PhoneBook::getContactInfos(std::string *infos)
 		"etc",
 		"etc",
 	};
-	for (size_t i = 0; i < 4; i++) {
+	for (size_t i = 0; i < 4; i++)
+	{
 		std::cout << message[i] << std::endl;
 		std::string buffer;
 		// this->getInput(buffer);
@@ -48,10 +49,8 @@ void	PhoneBook::displayList()
 	std::cout << "-------------------------------------------" << std::endl;
 	std::cout << "     Index|First Name| Last Name|  Nickname" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	for(int i = 0; i < sizeof(this->tabContact) / sizeof(this->tabContact[0]); i++)
-	{
-		std::cout <<
-	}
+	for(int i = 0; i < 8; i++)
+		this->tabContact[i].print(i);
 }
 
 void	PhoneBook::search(void)
@@ -95,11 +94,11 @@ void	PhoneBook::run()
 		std::string input;
 		if (!getInput(input)) 
 			break;
-	    for (size_t i = 0; i < sizeof(selection) / sizeof(selection[0]); i++) {
+		for (size_t i = 0; i < sizeof(selection) / sizeof(selection[0]); i++) {
 			if (input == selection[i].keyword) {
 				(this->*selection[i].func)();
 				continue;
 			}
-        }
+		}
 	}
 }
