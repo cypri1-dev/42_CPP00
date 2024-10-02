@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:28:10 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/09/27 17:36:10 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/02 17:14:31 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,31 @@
 #include <iostream>
 #include <string> 
 #include <cstdlib>
+#include <cstdio>
 
 typedef enum {
-	NAME,
+	FIRSTNAME,
 	LASTNAME,
+	NICKNAME,
 	PHONENUMBER,
 	DARKESTSECRET,
 } ContactInfos;
 
 class Contact {	
 	private:
-		std::string name;
+		std::string firstName;
 		std::string lastName;
+		std::string nickname;
 		std::string phoneNumber;
 		std::string darkestSecret;
 	public:
 		Contact() {}; //default constructor
-		Contact(std::string *infos); //custom constructor
+		void	contactReset();
+		void	fillInfos(); //custom constructor
 		bool isEmpty();
-		void print(size_t);
+		void print(size_t index);
 		std::string cut(std::string);
+		void printFullContact(size_t index);
 };
 
 #endif

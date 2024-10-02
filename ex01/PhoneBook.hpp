@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:34:34 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/09/27 17:10:07 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/02 17:13:36 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ class PhoneBook {
 		void search(void);
 		void displayList(void);
 		void exitPhonebook(void);
+		bool exitRequest;
+		bool isValidNumber(std::string index);
+		int stringToInt(std::string& str);
 
 	public:
 		void run();
