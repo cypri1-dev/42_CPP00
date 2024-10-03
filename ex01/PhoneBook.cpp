@@ -6,11 +6,12 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:16:41 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/02 17:19:06 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/03 17:02:03 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
 #include <cctype>
 #include <sstream>
 #include <string>
@@ -35,19 +36,16 @@ bool	PhoneBook::isValidNumber(std::string index)
 	if (indexAtoi >= 0 && indexAtoi <= 7)
 	{
 		if(!tabContact[indexAtoi].isEmpty())
-		{
-			std::cout << "Displaying contact at index " << indexAtoi << "..." << std::endl;
 			return (true);
-		}
 		else
 		{
-			std::cout << "No contact found at this index." << std::endl;
+			std::cout << YELLOW << "No contact found at this index." << RESET << std::endl;
 			return (false);
 		}
 	}
 	else
 	{
-		std::cout << "Index out of range, please enter a number between 0 and 7." << std::endl;
+		std::cout << "Index out of range, please enter a number between " << BOLD_ON << YELLOW << "0 and 7" << BOLD_OFF << "." << std::endl;
 		return (false);
 	}
 	return (false); 
@@ -57,31 +55,11 @@ bool	PhoneBook::getInput(std::string& input)
 {
 	if (!std::getline(std::cin, input))
 	{
-		std::cout << "\033[31m\nCtrl+D detected\033[0m" << std::endl;
+		std::cout << BOLD_ON << "\033[31m\nCtrl+D detected\033[0m" << BOLD_OFF << std::endl;
 		return(false);
 	}
 	return (true);
 }
-
-// void	PhoneBook::getContactInfos(std::string *infos)
-// {
-// 	std::string message[5] = {
-// 		"Enter first name: ",
-// 		"Enter last name: ",
-// 		"Enter nickname: ",
-// 		"Enter phone number: ",
-// 		"Enter darkest secret: ",
-// 	};
-// 	for (size_t i = 0; i < 5; i++)
-// 	{
-// 		std::cout << message[i] << std::endl;
-// 		std::string buffer;
-// 		// this->getInput(buffer);
-// 		if(!this->getInput(buffer))
-// 			exit(EXIT_FAILURE);
-// 		infos[i] = std::string(buffer);
-// 	}
-// }
 
 void	PhoneBook::displayList()
 {
@@ -94,31 +72,34 @@ void	PhoneBook::displayList()
 
 void	PhoneBook::search(void)
 {
+	bool isValid = false;
 	this->displayList();
 	if (tabContact[0].isEmpty())
 	{
-		std::cout << "PhoneBook is empty! Please enter at least one contact to use index search" << std::endl;
+		std::cout << "PhoneBook is " << BOLD_ON << YELLOW << "empty" << BOLD_OFF << "! Please enter at least one contact to use index search." << std::endl;
 		return;
 	}
 	else 
 	{
-		std::string index;
-		std::cout << "Enter an index :" << std::endl;
-		std::getline(std::cin, index);
-		//add protection;
-		if (isValidNumber(index))
+		while(!isValid)
 		{
-			// std::cout << "More comming soon..." << std::endl;
-			tabContact[stringToInt(index)].printFullContact(stringToInt(index));
+			std::string index;
+			std::cout << "Enter an " << BOLD_ON << "index" << BOLD_OFF << " :" << std::endl;
+			std::getline(std::cin, index);
+			//add protection;
+			if (isValidNumber(index))
+			{
+				isValid = true;
+				tabContact[stringToInt(index)].printFullContact(stringToInt(index));
+				break;
+			}
 		}
-		else
-			return;
 	}
 }
 
 void	PhoneBook::exitPhonebook(void)
 {
-	std::cout << "Exiting Phonebook!" << std::endl;
+	std::cout << GREEN << "Closing " << RESET << "Phonebook! 👋" << std::endl;
 	exitRequest = true;
 }
 
@@ -144,10 +125,11 @@ void	PhoneBook::run()
 		{ .keyword = "EXIT", .func = &PhoneBook::exitPhonebook},
 	};
 	
-	std::cout << "-- My PhoneBook --\n\n" << std::endl;
+	std::cout << "📇 "<< BOLD_ON << "MyPhoneBook" << BOLD_OFF << " 📇\n\n" << std::endl;
 	while(!this->exitRequest)
 	{
-		std::cout << "Please, choose from the following choices: ADD, SEARCH or EXIT : ";
+		std::cout << "Please, choose from the following choices: "
+		<< BOLD_ON << "ADD" << BOLD_OFF << " ➕, " << BOLD_ON << "SEARCH" << BOLD_OFF << " 🔍 or " << BOLD_ON << "EXIT" << BOLD_OFF << " 👋: ";
 		std::string input;
 		if (!getInput(input)) 
 			break;

@@ -6,12 +6,18 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:28:10 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/02 17:14:31 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/03 16:50:06 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
+
+#define BOLD_ON "\033[1m"
+#define BOLD_OFF "\033[0m"
+#define YELLOW "\033[33m"
+#define RESET "\033[0m"
+#define GREEN "\033[32m"
 
 #include <iostream>
 #include <string> 
