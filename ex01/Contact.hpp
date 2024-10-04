@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:28:10 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/03 16:50:06 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:23:50 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ class Contact {
 	public:
 		Contact() {}; //default constructor
 		void	contactReset();
-		void	fillInfos(); //custom constructor
-		bool isEmpty();
-		void print(size_t index);
-		std::string cut(std::string);
-		void printFullContact(size_t index);
+		void	fillInfos();
+		bool	isEmpty();
+		void	print(size_t index);
+		std::string	cut(std::string);
+		void	printFullContact(size_t index);
+		bool	checkArg(std::string input);
 };
 
 #endif

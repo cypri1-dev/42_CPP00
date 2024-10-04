@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:16:41 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/03 17:02:03 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:27:03 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	PhoneBook::displayList()
 void	PhoneBook::search(void)
 {
 	bool isValid = false;
+	std::cout << "\033[2J" << "\033[0;0H";
 	this->displayList();
 	if (tabContact[0].isEmpty())
 	{
@@ -85,7 +86,8 @@ void	PhoneBook::search(void)
 		{
 			std::string index;
 			std::cout << "Enter an " << BOLD_ON << "index" << BOLD_OFF << " :" << std::endl;
-			std::getline(std::cin, index);
+			if (!std::getline(std::cin, index))
+				break;
 			//add protection;
 			if (isValidNumber(index))
 			{
@@ -99,12 +101,14 @@ void	PhoneBook::search(void)
 
 void	PhoneBook::exitPhonebook(void)
 {
+	std::cout << "\033[2J" << "\033[0;0H";
 	std::cout << GREEN << "Closing " << RESET << "Phonebook! 👋" << std::endl;
 	exitRequest = true;
 }
 
 void	PhoneBook::add(void)
 {
+	std::cout << "\033[2J" << "\033[0;0H";
 	static size_t contact_number = 0;
 	this->tabContact[contact_number % 8].fillInfos();
 	contact_number++;

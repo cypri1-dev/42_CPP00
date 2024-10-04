@@ -6,15 +6,27 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:01:06 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/03 17:07:14 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:24:40 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include <string>
+
+bool	Contact::checkArg(std::string input)
+{
+	if (input.empty() || input.size() == 0)
+	{
+		std::cout << BOLD_ON << YELLOW << "TIP" << BOLD_OFF ": Input cannot be empty!" << std::endl;
+		return false;
+	}
+	return true;
+}
 
 void	Contact::fillInfos() 
 {
 	int i = 0;
+	bool control = false;
 	std::string buffer;
 	std::string message[5] = {
 		"Enter first name 📇: ",
@@ -23,24 +35,58 @@ void	Contact::fillInfos()
 		"Enter phone number 📱: ",
 		"Enter darkest secret ㊙️: ",
 	};
-	std::cout << BOLD_ON << message[i] << BOLD_OFF << std::endl;
-	std::getline(std::cin, buffer);
+	while (!control)
+	{
+		std::cout << BOLD_ON << message[i] << BOLD_OFF << std::endl;
+		if (!std::getline(std::cin, buffer))
+			break;
+		if (checkArg(buffer))
+			control = true;	
+	}
+	control = false;
 	this->firstName = std::string(buffer);
 	i++;
-	std::cout << BOLD_ON << message[i] << BOLD_OFF << std::endl;
-	std::getline(std::cin, buffer);
+	while (!control)
+	{
+		std::cout << BOLD_ON << message[i] << BOLD_OFF << std::endl;
+		if (!std::getline(std::cin, buffer))
+			break;
+		if (checkArg(buffer))
+			control = true;
+	}
+	control = false;
 	this->lastName = std::string(buffer);
 	i++;
-	std::cout << BOLD_ON << message[i] << BOLD_OFF << std::endl;
-	std::getline(std::cin, buffer);
+	while (!control)
+	{
+		std::cout << BOLD_ON << message[i] << BOLD_OFF << std::endl;
+		if (!std::getline(std::cin, buffer))
+			break;
+		if (checkArg(buffer))
+			control = true;
+	}
+	control = false;
 	this->nickname = std::string(buffer);
 	i++;
-	std::cout << BOLD_ON << message[i] << BOLD_OFF << std::endl;
-	std::getline(std::cin, buffer);
+	while (!control)
+	{
+		std::cout << BOLD_ON << message[i] << BOLD_OFF << std::endl;
+		if (!std::getline(std::cin, buffer))
+			break;
+		if (checkArg(buffer))
+			control = true;
+	}
+	control = false;
 	this->phoneNumber = std::string(buffer);
 	i++;
-	std::cout << BOLD_ON << message[i] << BOLD_OFF << std::endl;
-	std::getline(std::cin, buffer);
+	while (!control)
+	{
+		std::cout << BOLD_ON << message[i] << BOLD_OFF << std::endl;
+		if (!std::getline(std::cin, buffer))
+			break;
+		if (checkArg(buffer))
+			control = true;
+	}
 	this->darkestSecret = std::string(buffer);
 }
 
@@ -64,6 +110,7 @@ std::string Contact::cut(std::string param)
 
 void	Contact::printFullContact(size_t index)
 {
+	std::cout << "\033[2J" << "\033[0;0H";
 	std::cout << "-- Full information at index " << BOLD_ON << index << BOLD_OFF << "--\n" << std::endl;
 	std::cout << BOLD_ON << "name 📇: " << BOLD_OFF << this->firstName << std::endl;
 	std::cout << BOLD_ON << "last name 👪: " << BOLD_OFF << this->lastName << std::endl;
