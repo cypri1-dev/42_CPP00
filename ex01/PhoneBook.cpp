@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:16:41 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/04 16:27:03 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:29:17 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	PhoneBook::run()
 	{
 		std::string keyword;
 		void (PhoneBook::*func)(void);
-	} 
+	}
 	selection[] = 
 	{
 		{ .keyword = "ADD", .func = &PhoneBook::add},

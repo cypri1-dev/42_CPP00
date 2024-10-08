@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:01:06 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/04 16:24:40 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/08 13:50:27 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,7 @@ std::string Contact::cut(std::string param)
 		param.append(".");
 	}
 	else
-		while(param.size() < 10)
-			param.append(" ");
+			param.insert(0, (10 - param.size()), ' ');
 	return (param);
 }
 
