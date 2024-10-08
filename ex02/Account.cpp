@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:31:50 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/08 15:54:16 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/08 17:39:39 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,28 @@ Account::~Account()
 
 void	Account::displayAccountsInfos( void )
 {
-	
+	std::cout <<"[fake_time] accounts:" << _nbAccounts 
+	<< ";total:" << _totalAmount 
+	<< ";deposits:" << _totalNbDeposits 
+	<< ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 void	Account::displayStatus( void ) const
 {
-	
+	std::cout << "[fake_time] index:" << this->_accountIndex 
+	<< ";amount:" << this->_amount 
+	<< ";desposits:" << this->_nbDeposits 
+	<< ";withdrawals:" << this->_nbWithdrawals <<std::endl;
 }
 
 void	Account::makeDeposit( int deposit )
 {
-	(void)deposit;
+	std::cout << "[fake_time] index:" << this->_accountIndex
+	<< ";p_amount:" << this->_amount;
+	this->_amount += deposit;
+	std::cout << ";deposit:" << deposit
+	<< ";amount:" << this->_amount;
+	this->_nbDeposits++;
+	std::cout << ";nb_deposits:" << this->_nbDeposits << std::endl;
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
