@@ -6,14 +6,14 @@
 #    By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 09:52:16 by cyferrei          #+#    #+#              #
-#    Updated: 2024/09/27 12:26:29 by cyferrei         ###   ########.fr        #
+#    Updated: 2024/10/10 12:55:56 by cyferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
-CC = c++
+CXX = c++
 RM = rm -rf
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 SRC = megaphone.cpp
 
 OBJ = $(SRC:.cpp=.o)
@@ -39,7 +39,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "$(BOLD)Linking...$(RESET)"
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)Executable '$(NAME)' created successfully!$(RESET)"
 
 clean:

@@ -6,14 +6,14 @@
 #    By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 14:27:09 by cyferrei          #+#    #+#              #
-#    Updated: 2024/10/08 14:32:40 by cyferrei         ###   ########.fr        #
+#    Updated: 2024/10/10 14:30:00 by cyferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = account
-CC = c++
+CXX = c++
 RM = rm -rf
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 SRC = Account.cpp tests.cpp
 
 OBJ = $(SRC:.cpp=.o)
@@ -38,11 +38,11 @@ RESET   = \e[00m
 all: $(NAME)
 
 %.o: %.cpp
-	$(CC) $(CPPFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	@echo "$(BOLD)Linking...$(RESET)"
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)Executable '$(NAME)' created successfully!$(RESET)"
 
 clean:

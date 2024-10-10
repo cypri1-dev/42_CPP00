@@ -6,14 +6,14 @@
 #    By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 11:14:34 by cyferrei          #+#    #+#              #
-#    Updated: 2024/09/27 17:09:28 by cyferrei         ###   ########.fr        #
+#    Updated: 2024/10/10 12:58:06 by cyferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
-CC = c++
+CXX = c++
 RM = rm -rf
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 SRC = PhoneBook.cpp Contact.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
@@ -38,11 +38,11 @@ RESET   = \e[00m
 all: $(NAME)
 
 %.o: %.cpp
-	$(CC) $(CPPFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	@echo "$(BOLD)Linking...$(RESET)"
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)Executable '$(NAME)' created successfully!$(RESET)"
 
 clean:

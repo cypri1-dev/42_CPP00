@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:16:41 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/04 16:29:17 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:13:57 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ bool	PhoneBook::getInput(std::string& input)
 	}
 	return (true);
 }
+
+#include <iomanip>
 
 void	PhoneBook::displayList()
 {
