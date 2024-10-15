@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:01:06 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/08 13:50:27 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:06:43 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	Contact::fillInfos()
 	int i = 0;
 	bool control = false;
 	std::string buffer;
-	std::string message[5] = {
+	static const std::string message[5] = {
 		"Enter first name 📇: ",
 		"Enter last name 👪: ",
 		"Enter nickname 😉: ",

@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:31:50 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/10/10 12:21:27 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:36:45 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 		this->_nbWithdrawals++;
 		std:: cout << ";nb_withdrawals:" << this->_nbWithdrawals << std::endl;
 		_totalNbWithdrawals++;
-		return(true);
+		return(true); 
 	}
 }
 
